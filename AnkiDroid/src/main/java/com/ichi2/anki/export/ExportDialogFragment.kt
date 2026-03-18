@@ -86,8 +86,9 @@ class ExportDialogFragment : DialogFragment() {
         return AlertDialog
             .Builder(requireActivity())
             .setView(binding.root)
+            .setTitle(R.string.export_button)
             .negativeButton(R.string.dialog_cancel)
-            .positiveButton(R.string.dialog_ok) {
+            .positiveButton(stringRes = R.string.export_button) {
                 val selectedIndex = binding.exportTypeSelector.selectedItemPosition
                 // just to be safe, if not exporting a collection and the decks spinner is not
                 // enabled(the user was really fast or fetching the decks is delayed for some

@@ -1410,7 +1410,7 @@ open class DeckPicker :
         AlertDialog.Builder(this).show {
             title(text = getString(R.string.check_media_title))
             message(text = getString(R.string.check_media_warning))
-            positiveButton(R.string.dialog_ok) {
+            positiveButton(R.string.check_media) {
                 Timber.i("Starting media check")
                 startActivity(MediaCheckFragment.getIntent(this@DeckPicker))
             }

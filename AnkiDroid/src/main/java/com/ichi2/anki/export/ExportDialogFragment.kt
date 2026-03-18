@@ -86,7 +86,6 @@ class ExportDialogFragment : DialogFragment() {
         return AlertDialog
             .Builder(requireActivity())
             .setView(binding.root)
-            .setTitle(R.string.export_button)
             .negativeButton(R.string.dialog_cancel)
             .positiveButton(stringRes = R.string.export_button) {
                 val selectedIndex = binding.exportTypeSelector.selectedItemPosition

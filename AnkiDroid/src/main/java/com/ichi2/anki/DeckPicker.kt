@@ -168,6 +168,7 @@ import com.ichi2.anki.sync.launchCatchingRequiringOneWaySyncDiscardUndo
 import com.ichi2.anki.ui.ResizablePaneManager
 import com.ichi2.anki.ui.animations.fadeIn
 import com.ichi2.anki.ui.animations.fadeOut
+import com.ichi2.anki.ui.internationalization.toSentenceCase
 import com.ichi2.anki.ui.windows.permissions.PermissionsActivity
 import com.ichi2.anki.utils.Destination
 import com.ichi2.anki.utils.ShortcutUtils
@@ -1408,9 +1409,9 @@ open class DeckPicker :
     private fun showMediaCheckDialog() {
         Timber.i("showing media check dialog")
         AlertDialog.Builder(this).show {
-            title(text = getString(R.string.check_media_title))
+            title(text = TR.mediaCheckWindowTitle().toSentenceCase(R.string.sentence_check_media_title))
             message(text = getString(R.string.check_media_warning))
-            positiveButton(R.string.check_media) {
+            positiveButton(R.string.dialog_ok) {
                 Timber.i("Starting media check")
                 startActivity(MediaCheckFragment.getIntent(this@DeckPicker))
             }
@@ -1983,7 +1984,7 @@ open class DeckPicker :
         if (status.shouldWarnOnIntegrityCheck()) {
             Timber.d("Displaying File Size confirmation")
             AlertDialog.Builder(this).show {
-                title(R.string.check_db_title)
+                title(text = TR.databaseCheckTitle().toSentenceCase(R.string.sentence_check_db_title))
                 message(text = status.getWarningDetails(this@DeckPicker))
                 positiveButton(R.string.integrity_check_continue_anyway) {
                     performIntegrityCheck()
